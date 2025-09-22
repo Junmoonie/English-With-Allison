@@ -215,7 +215,11 @@
         <h2>¡Inscríbete Ahora!</h2>
         <p>Completa el siguiente formulario para reservar tu lugar en el curso o solicitar más información.</p>
         
-        <form id="inscription-form">
+        <form id="inscription-form" action="https://formsubmit.co/englishwithallisoon@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="NUEVA INSCRIPCIÓN - English with Allison">
+            <input type="hidden" name="_next" value="https://junmoonie.github.io/English-With-Allison/gracias.html">
+            <input type="hidden" name="_captcha" value="false">
+            
             <div class="form-group">
                 <label for="nombre">Nombre completo:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -262,27 +266,9 @@
         
         <div class="contact-info">
             <p><i class="fas fa-phone"></i> <strong>Teléfono:</strong> 477 230 0347</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> Jimenajantes@gmail.com</p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> englishwithallisoon@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Ubicación:</strong> Guanajuato, México</p>
         </div>
-        
-        <form>
-            <div class="form-group">
-                <label for="contact-name">Nombre:</label>
-                <input type="text" id="contact-name" name="contact-name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="contact-email">Correo electrónico:</label>
-                <input type="email" id="contact-email" name="contact-email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="contact-message">Mensaje:</label>
-                <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
-            </div>
-            
-            <button type="submit">Enviar mensaje</button>
-        </form>
     </section>
 
     <footer>
@@ -291,17 +277,11 @@
     </footer>
 
     <script>
-        // Script para manejar el envío de formularios
+        // Script para mostrar confirmación antes de enviar
         document.getElementById('inscription-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto para confirmar tu inscripción.');
-            this.reset();
-        });
-        
-        document.querySelector('#contact form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Mensaje enviado. Te contactaremos pronto.');
-            this.reset();
+            if(!confirm('¿Estás seguro de enviar tu inscripción? Nos pondremos en contacto contigo pronto.')) {
+                e.preventDefault();
+            }
         });
     </script>
 
